@@ -1,0 +1,14 @@
+  cd Документы/gitHW2
+  mkdir notest
+  cd notest
+  git clone https://github.com/hhru/frontik
+  cd frontik	
+  git filter-branch --index-filter "git rm --cached --ignore-unmatch -qr -- frontik/testing"
+  git status
+  cd ..
+  mkdir testonly
+  cd testonly
+  git clone https://github.com/hhru/frontik
+  cd frontik
+  git filter-branch --index-filter "git rm --cached --ignore-unmatch -qr -- . && git reset -q $GIT_COMMIT -- frontik/testing"
+  
